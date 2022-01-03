@@ -8,7 +8,6 @@ gunicorn==20.1.0
 itsdangerous==2.0.1
 jinja2==3.0.2
 markupsafe==2.0.1
-openssl==1.1.1l
 pip==21.2.4
 python==3.9.7
 setuptools==58.0.4
