@@ -19,6 +19,8 @@ def predict(client_id):
   sample_df = model["sample"]
   el = sample_df[sample_df["SK_ID_CURR"] == int(client_id)]
   el_mod = el.loc[:,~el.columns.isin(["SK_ID_CURR"])]
+  # question 2: je ne peux utiliser que predict et non pas predict_proba, 
+  # je ne sais pas à quoi correspond exactement la valeur retournée
   s = model["lightgbm"].predict(el_mod)
   c = { "client": client_id, "score":s.tolist()[0] }
   return c
@@ -29,6 +31,7 @@ def load_model():
   basedir = os.path.abspath(os.path.dirname(__file__))
   data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
   sample_file = os.path.join(basedir, 'model/app_sample.csv')
+  # question 1: je ne peux importer que le booster, cela ne marche pas quand je fais pickle
   model["lightgbm"] = lgb.Booster(model_file='model/modele_final_Lightgbm_bank.sav')
   with open(sample_file, "rb") as input_file:
     model["sample"] = pd.read_csv(input_file)
