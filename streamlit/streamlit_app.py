@@ -34,7 +34,8 @@ name = st.text_input("", "Exemple d'identifiant : 122136...")
 if(st.button('Envoyez')): 
     client_id = name.title() 
     response = requests.get("https://projet7-credit.herokuapp.com/predict/"+client_id)
-    st.success(response.json()) 
+    
+    st.success(response.json().score) 
 
 # faire une jauge
 # N° client, crédit accepté ou non, score détaillé sous forme de jauge colorée 
