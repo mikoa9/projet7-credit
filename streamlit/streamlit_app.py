@@ -1,5 +1,6 @@
 import streamlit as st
+from PIL import Image
 
-st.header("This is a header")
-st.subheader("This is a subheader")
-st.text("Hello GeeksForGeeks!!!") 
+st.header("Scoring crédit client")
+st.subheader("Prédiction de la solvabilité d'un client pour l'obtention d'un crédit")
+st.text("Veuillez saisir l'identifiant du client")
