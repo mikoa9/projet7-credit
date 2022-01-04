@@ -8,7 +8,8 @@ def running():
 
 @app.route("/predict/<client_id>")
 def predict(client_id):
-  return { c:client_id };
+  c = { "o": client_id }
+  return c
 
 if __name__ == "__main__":
   app.run(threaded=True, port=5000)
