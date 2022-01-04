@@ -12,7 +12,7 @@ import plotly.graph_objs as go
 
 
 # Lecture du modèle
-clf_pipe = pickle.load(open('modele_final_Lightgbm_bank.md', 'rb'))
+# clf_pipe = pickle.load(open('modele_final_Lightgbm_bank.md', 'rb'))
 
 # Initialisation des algo : n plus proches voisins?
 # Interprétation du modèle SHAP
