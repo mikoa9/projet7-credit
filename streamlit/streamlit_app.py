@@ -79,7 +79,7 @@ st.write("Your feature: ", feature)
 
 # Le tableau de bord présentera également d’autres graphiques 
 # sur les autres clients :
-# 	2 graphiques de features sélectionnées dans une liste déroulante, 
+# 2 graphiques de features sélectionnées dans une liste déroulante, 
 #présentant la distribution de la feature selon les classes, 
 #ainsi que le positionnement de la valeur du client
 # 	Un graphique d’analyse bi-variée entre les deux features sélectionnées, 
