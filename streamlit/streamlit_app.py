@@ -34,11 +34,13 @@ name = st.text_input("", "Exemple d'identifiant : 122136...")
 if(st.button('Envoyez')): 
     client_id = name.title() 
     response = requests.get("https://projet7-credit.herokuapp.com/predict/"+client_id)
+    #https://community.plotly.com/t/plotly-js-gauge-pie-chart-data-order/8686
+    # https://gist.github.com/tvst/b7bc2cb257ed88557037cb46e4baf80b
     fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = response.json()["score"],
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Speed"}))
+    title = {'text': "Score"}))
 
     st.write(fig)
     st.success(response.json()["score"]) 
@@ -48,16 +50,8 @@ if(st.button('Envoyez')):
 # selon qu’il est en dessous ou au-dessus du seuil : 
 #permet de juger s’il est loin du seuil ou non.
 
-#https://community.plotly.com/t/plotly-js-gauge-pie-chart-data-order/8686
 
-# https://gist.github.com/tvst/b7bc2cb257ed88557037cb46e4baf80b
-fig = go.Figure(go.Indicator(
-    mode = "gauge+number",
-    value = 270,
-    domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Speed"}))
 
-st.write(fig)
 
 # Divers messages :
 # st.success("Success") 
