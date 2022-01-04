@@ -34,7 +34,13 @@ name = st.text_input("", "Exemple d'identifiant : 122136...")
 if(st.button('Envoyez')): 
     client_id = name.title() 
     response = requests.get("https://projet7-credit.herokuapp.com/predict/"+client_id)
-    
+    fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = response.json()["score"],
+    domain = {'x': [0, 1], 'y': [0, 1]},
+    title = {'text': "Speed"}))
+
+    st.write(fig)
     st.success(response.json()["score"]) 
 
 # faire une jauge
