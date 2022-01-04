@@ -49,7 +49,7 @@ fig = go.Figure(go.Indicator(
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Speed"}))
 
-fig.show()
+st.write(fig)
 
 # Divers messages :
 # st.success("Success") 
