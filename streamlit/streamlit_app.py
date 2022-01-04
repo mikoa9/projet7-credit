@@ -32,7 +32,7 @@ name = st.text_input("", "Exemple d'identifiant : 122136...")
   
 if(st.button('Envoyez')): 
     result = name.title() 
-    st.success(result) 
+    st.error(result) 
 
 # faire une jauge
 # N° client, crédit accepté ou non, score détaillé sous forme de jauge colorée 
@@ -50,13 +50,13 @@ fig = go.Figure(go.Indicator(
 fig.show()
 
 # Divers messages :
-st.success("Success") 
+# st.success("Success") 
   
-st.info("Information") 
+# st.info("Information") 
   
-st.warning("Warning") 
+# st.warning("Warning") 
   
-st.error("Error") 
+# st.error("Error") 
 
 # Sa feature importance locale sous forme de graphique, 
 #qui permet au chargé d’étude de comprendre quelles sont les données du client
