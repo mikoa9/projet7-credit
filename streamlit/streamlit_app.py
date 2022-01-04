@@ -25,14 +25,14 @@ import shap
 #img = Image.open("https://www.faire-un-credit.fr/wp-content/uploads/2021/02/faire-un-credit-en-ligne.png") 
 #st.image(img, width=200) 
 # QUESTION : on charge le modèle ici et on interroge l'api pour récupérer le score, est-ce que c'est bien ce qu'il faut faire ?
-basedir = os.path.abspath(os.path.dirname(__file__))
-data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
-sample_file = os.path.join(basedir, 'model/app_sample.csv')
-df = {}
-with open(sample_file, "rb") as input_file:
-    df["sample"] = pd.read_csv(input_file)
+#basedir = os.path.abspath(os.path.dirname(__file__))
+#data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
+#sample_file = os.path.join(basedir, 'model/app_sample.csv')
+#df = {}
+#with open(sample_file, "rb") as input_file:
+#    df["sample"] = pd.read_csv(input_file)
 
-model = lgb.Booster(model_file=data_file)
+#model = lgb.Booster(model_file=data_file)
 
 #Textes
 st.header("Scoring crédit client")
@@ -55,10 +55,10 @@ if(st.button('Envoyez')):
 
     st.write(fig)
     st.success(response.json()["score"])
-    client = sample_df[sample_df["SK_ID_CURR"] == int(client_id)]
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(client)
-    shap.summary_plot(shap_values, client)
+    #client = sample_df[sample_df["SK_ID_CURR"] == int(client_id)]
+    #explainer = shap.TreeExplainer(model)
+    #shap_values = explainer.shap_values(client)
+    #shap.summary_plot(shap_values, client)
 
 # faire une jauge
 # N° client, crédit accepté ou non, score détaillé sous forme de jauge colorée 
