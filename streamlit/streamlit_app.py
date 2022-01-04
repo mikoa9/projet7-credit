@@ -40,6 +40,16 @@ if(st.button('Envoyez')):
 # selon qu’il est en dessous ou au-dessus du seuil : 
 #permet de juger s’il est loin du seuil ou non.
 
+#https://community.plotly.com/t/plotly-js-gauge-pie-chart-data-order/8686
+
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = 270,
+    domain = {'x': [0, 1], 'y': [0, 1]},
+    title = {'text': "Speed"}))
+
+fig.show()
+
 # Divers messages :
 st.success("Success") 
   
