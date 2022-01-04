@@ -13,3 +13,4 @@ wincertstore==0.2
 lightgbm
 pandas
 numpy
+joblib
