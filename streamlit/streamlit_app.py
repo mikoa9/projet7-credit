@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
-import dash
+import dash as ds
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
