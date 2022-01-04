@@ -35,7 +35,7 @@ if(st.button('Envoyez')):
     client_id = name.title() 
     response = requests.get("https://projet7-credit.herokuapp.com/predict/"+client_id)
     
-    st.success(response.json().score) 
+    st.success(response.json()["score"]) 
 
 # faire une jauge
 # N° client, crédit accepté ou non, score détaillé sous forme de jauge colorée 
@@ -44,6 +44,7 @@ if(st.button('Envoyez')):
 
 #https://community.plotly.com/t/plotly-js-gauge-pie-chart-data-order/8686
 
+# https://gist.github.com/tvst/b7bc2cb257ed88557037cb46e4baf80b
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = 270,
