@@ -39,8 +39,8 @@ st.header("Scoring crédit client")
 st.subheader("Prédiction de la solvabilité d'un client pour l'obtention d'un crédit")
 
 #champ identifiant client
-st.text("Veuillez saisir l'identifiant du client")
-name = st.text_input("", "Exemple d'identifiant : 122136...") 
+st.text("Veuillez saisir l'identifiant du client. Ex : 340061, 187416...")
+name = st.text_input("", "Numéro d'identifiant") 
   
 if(st.button('Envoyez')): 
     client_id = name.title() 
