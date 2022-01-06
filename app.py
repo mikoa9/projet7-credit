@@ -31,10 +31,12 @@ def predict(client_id):
 def load_model():
   # https://www.kaggle.com/bogorodvo/starter-code-saving-and-loading-lgb-xgb-cb
   basedir = os.path.abspath(os.path.dirname(__file__))
-  data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
+  data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.model')
   sample_file = os.path.join(basedir, 'model/app_sample.csv')
   # question 1: je ne peux importer que le booster, cela ne marche pas quand je fais pickle
-  model["lightgbm"] = lgb.Booster(model_file='model/modele_final_Lightgbm_bank.sav')
+  with open(data_file, "rb") as input_file:
+    model["lightgbm_witherrornotfitted"] = pickle.load(input_file)
+  model["lightgbm"] = lgb.Booster(model_file='model/modele_final_Lightgbm_bank.model')
   with open(sample_file, "rb") as input_file:
     model["sample"] = pd.read_csv(input_file)
 
