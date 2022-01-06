@@ -14,6 +14,7 @@ model = {}
 def running():
     return "<p>Serveur en route...</p>"
 
+# Fonction executée qd on fait appel à l'API
 @app.route("/predict/<client_id>")
 def predict(client_id):
   sample_df = model["sample"]
@@ -25,6 +26,7 @@ def predict(client_id):
   c = { "client": client_id, "score":s.tolist()[0] }
   return c
 
+# code à executer pour charger le modèle et données
 @app.before_first_request
 def load_model():
   # https://www.kaggle.com/bogorodvo/starter-code-saving-and-loading-lgb-xgb-cb
