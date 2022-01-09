@@ -4,4 +4,4 @@ requests
 lightgbm
 pandas
 numpy
-shap
+shap==0.40.0
