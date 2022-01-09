@@ -9,6 +9,7 @@ import plotly.graph_objs as go
 import requests
 import os
 import shap
+import pickle
 
 # https://projet7-credit.herokuapp.com/predict/218461
 # Lecture des données
