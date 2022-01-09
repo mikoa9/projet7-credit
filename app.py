@@ -19,7 +19,7 @@ def running():
 def predict(client_id):
   sample_df = model["sample"]
   el = sample_df[sample_df["SK_ID_CURR"] == int(client_id)]
-  el_mod = el.loc[:,~el.columns.isin(["SK_ID_CURR"])]
+  el_mod = el.loc[:,~el.columns.isin(["SK_ID_CURR",'COMMONAREA_AVG', 'COMMONAREA_MODE', 'COMMONAREA_MEDI'])]
   # question 2: je ne peux utiliser que predict et non pas predict_proba, 
   # je ne sais pas à quoi correspond exactement la valeur retournée
   s = model["lightgbm"].predict_proba(el_mod)
