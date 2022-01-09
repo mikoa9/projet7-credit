@@ -28,13 +28,12 @@ import shap
 # QUESTION : on charge le modèle ici et on interroge l'api pour récupérer le score, 
 #est-ce que c'est bien ce qu'il faut faire ?
 
-#basedir = os.path.abspath(os.path.dirname(__file__))
-#data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
-#sample_file = os.path.join(basedir, 'model/app_sample.csv')
-#df = {}
-#with open(sample_file, "rb") as input_file:
-#    df["sample"] = pd.read_csv(input_file)
-f_test = pd.read_csv('/app/projet7-credit/streamlit/testfile.txt')
+with open('/app/projet7-credit/streamlit/shap/explainer.model', "rb") as input_file:
+    explainer = pickle.load(input_file)
+shap_values0 = pd.read_csv('/app/projet7-credit/streamlit/shap/shap_values_0.shap')
+shap_values1 = pd.read_csv('/app/projet7-credit/streamlit/shap/shap_values_1.shap')
+shap_values = [np.array(shap_values0), np.array(shap_values1)]
+shap.plots.force(explainer.expected_value, shap_values[0][:500])
 #model = lgb.Booster(model_file=data_file)
 
 #Textes
