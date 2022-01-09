@@ -34,8 +34,7 @@ import shap
 #df = {}
 #with open(sample_file, "rb") as input_file:
 #    df["sample"] = pd.read_csv(input_file)
-arr = os.listdir('.')
-print(arr)
+f_test = pd.read_csv('/app/projet7-credit/streamlit/testfile.txt')
 #model = lgb.Booster(model_file=data_file)
 
 #Textes
