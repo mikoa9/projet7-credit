@@ -53,7 +53,7 @@ if(st.button('Envoyez')):
     # https://gist.github.com/tvst/b7bc2cb257ed88557037cb46e4baf80b
     fig = go.Figure(go.Indicator(
     mode = "gauge+number",
-    value = response.json()["score"],
+    value = response.json()["score"][0],
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Score"}))
 
