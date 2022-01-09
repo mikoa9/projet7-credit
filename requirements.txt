@@ -10,7 +10,7 @@ jinja2==3.0.2
 markupsafe==2.0.1
 werkzeug==2.0.2
 wincertstore==0.2
-lightgbm
+lightgbm==2.2.3
 pandas
 numpy
 joblib

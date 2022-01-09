@@ -17,21 +17,24 @@ import shap
 # Lecture du modèle
 # clf_pipe = pickle.load(open('modele_final_Lightgbm_bank.md', 'rb'))
 
-# Initialisation des algo : n plus proches voisins?
+# Initialisation des algo : n plus proches voisins? pour comparaison avec autres clients
 # Interprétation du modèle SHAP
 
 # Dasboard avec streamlit
 
 #img = Image.open("https://www.faire-un-credit.fr/wp-content/uploads/2021/02/faire-un-credit-en-ligne.png") 
 #st.image(img, width=200) 
-# QUESTION : on charge le modèle ici et on interroge l'api pour récupérer le score, est-ce que c'est bien ce qu'il faut faire ?
+
+# QUESTION : on charge le modèle ici et on interroge l'api pour récupérer le score, 
+#est-ce que c'est bien ce qu'il faut faire ?
+
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.sav')
 #sample_file = os.path.join(basedir, 'model/app_sample.csv')
 #df = {}
 #with open(sample_file, "rb") as input_file:
 #    df["sample"] = pd.read_csv(input_file)
-
+file_ex = pd.read_csv("/app/projet7-credit/testfile.txt")
 #model = lgb.Booster(model_file=data_file)
 
 #Textes
