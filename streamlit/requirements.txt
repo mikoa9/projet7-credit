@@ -5,3 +5,4 @@ lightgbm
 pandas
 numpy
 shap==0.40.0
+numba

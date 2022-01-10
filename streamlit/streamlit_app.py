@@ -1,5 +1,7 @@
 #Importation des librairies
 import streamlit as st
+import streamlit.components.v1 as components
+
 from PIL import Image
 import pandas as pd
 import numpy as np
@@ -25,17 +27,17 @@ import pickle
 
 #img = Image.open("https://www.faire-un-credit.fr/wp-content/uploads/2021/02/faire-un-credit-en-ligne.png") 
 #st.image(img, width=200) 
+def st_shap(plot, height=None):
+    shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
+    components.html(shap_html, height=height)
 
-# QUESTION : on charge le modèle ici et on interroge l'api pour récupérer le score, 
-#est-ce que c'est bien ce qu'il faut faire ?
-
-with open('/app/projet7-credit/streamlit/shap/explainer.model', "rb") as input_file:
-    explainer = pickle.load(input_file)
-shap_values0 = pd.read_csv('/app/projet7-credit/streamlit/shap/shap_values_0.shap')
-shap_values1 = pd.read_csv('/app/projet7-credit/streamlit/shap/shap_values_1.shap')
+base_path = "/app/projet7-credit/streamlit"
+# base_path = os.getcwd()
+expected_value = [0.7219468377624242, -0.7219468377624242]
+shap_values0 = pd.read_csv(base_path + '/shap/shap_values_0.shap')
+shap_values1 = pd.read_csv(base_path + '/shap/shap_values_1.shap')
 shap_values = [np.array(shap_values0), np.array(shap_values1)]
-shap.plots.force(explainer.expected_value, shap_values[0][:500])
-#model = lgb.Booster(model_file=data_file)
+st_shap(shap.plots.force(expected_value[0], shap_values[0][99:100]))
 
 #Textes
 st.header("Scoring crédit client")
