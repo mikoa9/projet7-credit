@@ -19,7 +19,7 @@ def running():
 def predict(client_id):
   sample_df = model["sample"]
   el = sample_df[sample_df["SK_ID_CURR"] == int(client_id)]
-  el_mod = el.loc[:,~el.columns.isin(["SK_ID_CURR",'COMMONAREA_AVG', 'COMMONAREA_MODE', 'COMMONAREA_MEDI'])]
+  el_mod = el.loc[:,~el.columns.isin(["SK_ID_CURR"])]
   # question 2: je ne peux utiliser que predict et non pas predict_proba, 
   # je ne sais pas à quoi correspond exactement la valeur retournée
   s = model["lightgbm"].predict_proba(el_mod)
@@ -32,7 +32,7 @@ def load_model():
   # https://www.kaggle.com/bogorodvo/starter-code-saving-and-loading-lgb-xgb-cb
   basedir = os.path.abspath(os.path.dirname(__file__))
   data_file = os.path.join(basedir, 'model/modele_final_Lightgbm_bank.model')
-  sample_file = os.path.join(basedir, 'model/app_sample.csv')
+  sample_file = os.path.join(basedir, 'model/app_sample_normalized.csv')
   # question 1: je ne peux importer que le booster, cela ne marche pas quand je fais pickle
   with open(data_file, "rb") as input_file:
     model["lightgbm"] = pickle.load(input_file)
