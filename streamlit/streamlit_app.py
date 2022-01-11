@@ -59,7 +59,7 @@ sample = sample.reset_index()
 
 # Image features globales
 image = Image.open(base_path + '/shap/distribution.png')
-image_logo = Image.open(base_path + '/image/dash3.png')
+image_logo = Image.open(base_path + '/image/dash3.PNG')
 st.image(image_logo)
 
 #Textes
