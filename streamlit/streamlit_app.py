@@ -47,8 +47,8 @@ def get_top_columns(shap_vals, index, f_names, num):
     return l
 
 # Shap values de la classe 0 
-# base_path = "/app/projet7-credit/streamlit"
-base_path = os.getcwd()
+base_path = "/app/projet7-credit/streamlit"
+# base_path = os.getcwd()
 expected_value = [0.7214676881413614, -0.7214676881413614]
 with open(base_path + '/shap/shap_values.shap', "rb") as input_file:
   shap_values = pickle.load(input_file)
