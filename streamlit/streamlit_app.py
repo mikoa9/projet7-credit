@@ -53,7 +53,7 @@ expected_value = [-0.8940935826996587, 0.8940935826996587]
 with open(base_path + '/shap/shap_values.shap', "rb") as input_file:
   shap_values = pickle.load(input_file)
 # Chargement de données 
-sample = pd.read_csv(base_path + '/model/app_sample_normalized.csv')
+sample = pd.read_csv(base_path + '/model/app_sample_normalized_target.csv').iloc[:,1:]
 feature_names = sample.columns[~sample.columns.isin(["SK_ID_CURR","TARGET"])].tolist()
 sample = sample.reset_index()
 
@@ -67,7 +67,7 @@ st.header("Scoring crédit client")
 st.subheader("1. Prédiction de la solvabilité d'un client pour l'obtention d'un prêt")
 
 #champ identifiant client
-st.text("Veuillez saisir l'identifiant du client. Ex : 332641, 369125, 104353...")
+st.text("Veuillez saisir l'identifiant du client. Ex : 358806, 448032, 223380, 324117...")
 name = st.text_input("", "Numéro d'identifiant") 
 
 if st.button('Envoyez') or st.session_state.clicked: 
@@ -97,7 +97,6 @@ if st.button('Envoyez') or st.session_state.clicked:
     st.write(fig)
     start = int(sample[sample["SK_ID_CURR"] == int(client_id)]["index"])
     #end = start + 1
-
 
     st.subheader("2. Influence des variables sur le score du client– TOP 10")
     st.write("Conseil au chargé clientèle : en cas de refus ou d'obtention de prêt, vous pouvez expliquer au client les variables qui ont impacté ce choix")
