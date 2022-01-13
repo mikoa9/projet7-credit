@@ -37,7 +37,7 @@ def load_model():
   with open(data_file, "rb") as input_file:
     model["lightgbm"] = pickle.load(input_file)
   with open(sample_file, "rb") as input_file:
-    model["sample"] = pd.read_csv(input_file)
+    model["sample"] = pd.read_csv(input_file).iloc[:,1:]
 
 if __name__ == "__main__":
   app.run(threaded=True, port=5000)

@@ -31,7 +31,7 @@ if 'clicked' not in st.session_state:
     st.session_state['clicked'] = False
 
 # Impression image (features globale)
-threshold = 0.5538
+threshold = 1 - 0.03
 
 #Méthode pour afficher le force plot de shap
 def st_shap(plot, height=None):
@@ -47,9 +47,9 @@ def get_top_columns(shap_vals, index, f_names, num):
     return l
 
 # Shap values de la classe 0 
-base_path = "/app/projet7-credit/streamlit"
-# base_path = os.getcwd()
-expected_value = [0.7214676881413614, -0.7214676881413614]
+# base_path = "/app/projet7-credit/streamlit"
+base_path = os.getcwd()
+expected_value = [-0.8940935826996587, 0.8940935826996587]
 with open(base_path + '/shap/shap_values.shap', "rb") as input_file:
   shap_values = pickle.load(input_file)
 # Chargement de données 
