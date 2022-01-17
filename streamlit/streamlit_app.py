@@ -91,7 +91,7 @@ if st.button('Envoyez') or st.session_state.clicked:
         fig.update_traces(gauge_bar_color="green")
     else:
         fig.update_traces(gauge_bar_color="red")
-        st.error("Le client a " +"{:.2%}".format(1 - zero_proba)+ " de probabilité de défaut de paiement.")
+        st.error("Le client a " +"{:.2%}".format(1 - zero_proba)+ " de probabilité de défaut de paiement. Supérieur aux 3% autorisés !")
 
     # Affichage de la jauge
     st.write(fig)
